@@ -1,0 +1,69 @@
+.user-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Elimina el margen para evitar que se desborde */
+  top: 30px; /* Distancia desde arriba */
+}
+
+.listItem {
+  margin-bottom: 10px;
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(74, 110, 210);
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.user-table {
+  top: 20px;
+  border-collapse: separate;
+  border-spacing: 5px;
+  width: 80%;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 30px; /* Agrega un margen superior */
+  align-items: center;
+  position: absolute;
+}
+
+
+.user-table th, .user-table td {
+  padding: 12px;
+  border: 4px solid #2b67c8;
+  border-radius: 0%;
+  text-align: center;
+  
+}
+
+
+.regresar{
+  position: absolute; /* Establece posición absoluta para el botón */
+  bottom: 10px; /* Distancia desde abajo */
+  left: 10px; /* Distancia desde la izquierda */
+  padding: 0.8rem;
+  background: hsl(212deg 27.89% 92.57%);
+  border-radius: 10px;
+  color: hsl(216, 46%, 44%);
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  gap: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.textt{
+  position: absolute; /* Establece posición absoluta para el texto */
+top: 10px; /* Distancia desde arriba */
+left: 50%; /* Centra horizontalmente */
+transform: translateX(-50%); /* Ajusta para centrar exactamente */
+color: #2766b9;
+padding: 10px;
+border-radius: 3px;
+text-align: center
+}
+
