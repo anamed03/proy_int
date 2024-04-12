@@ -9,17 +9,25 @@ const router = express.Router();
 app.use(express.json())
 app.use(cors())
 
+//------------------------------------------------------------------
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+  });
+
 // Let us run the server. SO its running,
-app.listen(5000, ()=>{
+app.listen(3000, ()=>{
     console.log('Server is running on port 3000')
 })
 
 // Let us create our database (mysql)
 const db = mysql.createConnection({
-    user: 'root',
-    host: 'localhost',
-    password: '', //If you have set xampp password please enter it here
-    database: 'db_integra',
+    user: 'dbu2754334',
+    host: 'db5015663674.hosting-data.io',
+    password: 'MEMAMMCJ02j%', //If you have set xampp password please enter it here
+    database: 'dbs12785880',
 })
 
 
@@ -152,36 +160,6 @@ router.post('/productos', (req, res) => {
         res.status(200).json({ message: 'Producto insertado correctamente' });
     });
 });
-
-//-----------------------------------------------Arduino--------------------------------------------------------------
-router.get('/productos/ultimo', (req, res) => {
-    const sqlQuery = 'SELECT * FROM productos ORDER BY IdProducto DESC LIMIT 1';
-    db.query(sqlQuery, (err, result) => {
-        if (err) {
-            console.error('Error al obtener el último registro de productos:', err);
-            res.status(500).json({ error: 'Error al obtener el último registro de productos' });
-            return;
-        }
-        if (result.length > 0) {
-            const ultimoProducto = result[0];
-            // Aquí agregamos la categoría al objeto que vamos a devolver
-            const respuesta = {
-                IdProducto: ultimoProducto.IdProducto,
-                QR: ultimoProducto.QR,
-                Nombre: ultimoProducto.Nombre,
-                Categoria: ultimoProducto.Categoria,
-                Cantidad: ultimoProducto.Cantidad
-            };
-            res.json(respuesta);
-        } else {
-            res.status(404).json({ error: 'No se encontraron productos' });
-        }
-    });
-});
-
-
-// Usar el enrutador definido para todas las rutas bajo /api
-app.use('/api', router);
 
 //////////////////////////////////////////////////////LOGICA USUARIOS///////////////////////////////////////////////////////////////////////////77
 // Ruta para obtener todos los usuarios

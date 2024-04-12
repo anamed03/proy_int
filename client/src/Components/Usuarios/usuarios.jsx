@@ -18,7 +18,7 @@ function Usu() {
   });
 
   useEffect(() => {
-    axios.get('http://192.168.16.172:5000/api/users')
+    axios.get('https://athom-back.onrender.com/api/users')
       .then(response => {
         setUsers(response.data);
       })
@@ -28,7 +28,7 @@ function Usu() {
   }, []);
 
   const handleDeleteUser = (id) => {
-    axios.delete(`http://192.168.16.172:5000/api/users/${userid}`)
+    axios.delete(`https://athom-back.onrender.com/api/users/${userid}`)
       .then(response => {
         console.log(response.data.message);
         setUsers(users.filter(usuario => usuario.id !== id));
@@ -57,7 +57,7 @@ function Usu() {
   };
 
   const handleSubmitEdit = () => {
-    axios.put(`http://192.168.16.172:5000/api/users/${editid}`, editedUser)
+    axios.put(`https://athom-back.onrender.com/api/users/${editid}`, editedUser)
       .then(response => {
         console.log(response.data.message);
         setEditUserId(null);

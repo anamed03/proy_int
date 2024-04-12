@@ -17,7 +17,7 @@ function Inven() {
   });
 
   useEffect(() => {
-    axios.get('http://192.168.16.172:5000/api/productos')
+    axios.get('https://athom-back.onrender.com/api/productos')
       .then(response => {
         setProductos(response.data);
       })
@@ -27,7 +27,7 @@ function Inven() {
   }, []);
 
   const handleDeleteProduct = (id) => {
-    axios.delete(`http://192.168.16.172:5000/api/productos/${id}`)
+    axios.delete(`https://athom-back.onrender.com/api/productos/${id}`)
       .then(response => {
         console.log(response.data.message);
         setProductos(productos.filter(producto => producto.IdProducto !== id));
@@ -57,7 +57,7 @@ function Inven() {
   };
 
   const handleSubmitEdit = () => {
-    axios.put(`http://192.168.16.172:5000/api/productos/${editProductId}`, editedProduct)
+    axios.put(`https://athom-back.onrender.com/api/productos/${editProductId}`, editedProduct)
       .then(response => {
         console.log(response.data.message);
         setEditProductId(null);
